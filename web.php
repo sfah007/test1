@@ -22,6 +22,13 @@ $message = $update->message;
 $mid = $message->message_id;
 $text = $message->text;
 $chat_id = $message->chat->id;
+  
+For($dev_a = 0; $dev_a < 1000; $dev_a++){
+if($text == '/spam'){
+bot('sendMessage', [
+'chat_id'=>$chat_id,
+'text'=>"spam",
+]);}}
 
 if(strlen($text) > 4 and $text !="/start"){
 if(preg_match('/([a-z])|([A-Z])/i',$text)){
