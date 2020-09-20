@@ -1,44 +1,16 @@
+# ch :- @php_i # Dev :- @dev_a #
+
+# تنشر اذكر المصدر #
+
 <?php
-
-ob_start();
-$API_KEY = "1261726970:AAFGxiqC1i2t3sj4BqGETlgAgyUiSs-JChM";
-define("API_KEY",$API_KEY);
-function bot($method,$datas=[]){
-$url = "https://api.telegram.org/bot".API_KEY."/".$method;
-$ch = curl_init();
-curl_setopt($ch,CURLOPT_URL,$url);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
-$res = curl_exec($ch);
-if(curl_error($ch)){
-var_dump(curl_error($ch));
+if($_GET['user']){
+ $_GET['user'] = trim($_GET['user'],'@');
+  $dev_a = file_get_contents('http://t.me/'.$_GET['user'],null,null,0,1334);
+preg_match('/property="og:description" content="(.*)">/',$dev_a,$match);
+if($match[1] == ""){
+echo "متاح ✔️";
 }else{
-return json_decode($res);
+echo "غير متاح ✖️";
 }
-}
-$update = json_decode(file_get_contents("php://input"));
-if(isset($update->message)){
-$message = $update->message;
-$mid = $message->message_id;
-$text = $message->text;
-$chat_id = $message->chat->id;
-  
-For($dev_a = 0; $dev_a < 1000; $dev_a++){
-if($text == '/spam'){
-bot('sendMessage', [
-'chat_id'=>$chat_id,
-'text'=>"spam",
-]);}}
-
-if(strlen($text) > 4 and $text !="/start"){
-if(preg_match('/([a-z])|([A-Z])/i',$text)){
-$text_line = explode("\n",$text);
-for($i=0;$i<count($text_line); $i++){
-$check = file_get_contents("https://botathomd.xyz/chek.php?user=$text_line[$i]");
-if($check == "متاح ➕"){
-bot('sendMessage',[
-'chat_id'=>$chat_id,
-'text'=>"$check - $text_line[$i]",
-]);
-}}}
-}}
+}  
+# ch :- @php_i # Dev :- @dev_a #
