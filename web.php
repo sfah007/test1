@@ -1,109 +1,80 @@
 <?php
-
-
-$API_KEY = '1261726970:AAFGxiqC1i2t3sj4BqGETlgAgyUiSs-JChM'; // TOKEN 
-define('API_KEY',$API_KEY);
+ob_start();
+define('API_KEY','TOKKKEN');
+/*
+سوالف المزعطه و الفروخ بطلها لخاطر دينك 🖕🏼
+تخمط و تعدل وتكتب كتابتي قسم بالله انشرك بكروب الفروخ 
+حتلو تعدل علملف اكتب اصل الملف للباشا
+ */
+ /*
+ قنوات البوت الرسميه 
+ @REXO_TEAM + @dev_ahvaz
+ */
 function bot($method,$datas=[]){
-    $url = "https://api.telegram.org/bot".API_KEY."/".$method;
-    $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL,$url);
-    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-    curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
-    $res = curl_exec($ch);
-    if(curl_error($ch)){
-        var_dump(curl_error($ch));
-    }else{
-        return json_decode($res);
-    }
+$url = 'https://api.telegram.org/bot'.API_KEY.'/'.$method;
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($ch,CURLOPT_POSTFIELDS,$datas);
+$res = curl_exec($ch);
+if(curl_error($ch)){
+var_dump(curl_error($ch));
+}else{
+return json_decode($res);
 }
-
+}
 $update = json_decode(file_get_contents('php://input'));
 $message = $update->message;
-$text = $message->text;
 $chat_id = $message->chat->id;
-$ar = array("a","A","b","B","c","C","d","D","e","E","f","F","g","G","h","H","i","I","j","J","k","K","l",'L','m','M','n',"N",'o','O','p','P','q','Q','r','R','S','s','t','T',1,2,3,4,5,6,7,8,9);
-
-$rand1 = array_rand($ar, 1);
-$rand2 = array_rand($ar, 1);
-$rand3 = array_rand($ar, 1);
-$rand4 = array_rand($ar, 1);
-$rand5 = array_rand($ar, 1);
-$rand6 = array_rand($ar, 1);
-$rand7 = array_rand($ar, 1);
-$rand8 = array_rand($ar, 1);
-$rand9 = array_rand($ar, 1);
-$rand10 = array_rand($ar, 1);
-$rand11 = array_rand($ar, 1);
-$a1 = $ar[$rand1];
-$a2 = $ar[$rand2];
-$a3 = $ar[$rand3];
-$a4 = $ar[$rand4];
-$a5 = $ar[$rand5];
-$a6 = $ar[$rand6];
-$a7 = $ar[$rand7];
-$a8 = $ar[$rand8];
+$text = $message->text; 
+$fn = $message->from->first_name;
+$message_id = $update->callback_query->message->message_id;
+$message_id2 = $update->callback_query->message->message_id;
+$chat_id2 = $update->callback_query->message->chat->id;
+$from_id = $update->message->from->id;
+$username = $update->message->from->username;
+$t =$message->chat->title;
 
 
+
+##### السترات #####
 if($text == "/start"){
 bot('sendMessage',[
 'chat_id'=>$chat_id,
-'text'=>"💟 ~ اهلا بك في بوت انشاء حسابات انستا\nارسل فقط ايميل 📩 وسيتم ارسال معلومات الحساب لك 💎\n\n~ Dev [سجاد](https://t.me/sajademo) 🕴",
-'disable_web_page_preview'=>true,
-'parse_mode'=>"Markdown",
-'reply_markup'=>json_encode([
-'inline_keyboard'=>[
-[['text'=>"اشترك 🔋", "url"=>"https://t.me/ccocc"]]
-]
-])
-]);
-}
-
-
-if(filter_var($text, FILTER_VALIDATE_EMAIL)){
-$email = $text;
-$name = 'By مختلiqw';
-$username = $a1.$a2.$a3.$a4.$a5.$a6.$a7.$a8;
-$password = $a1.$a2.$a3.$a4.$a5.$a6.$a7;
-
-$instagram = curl_init();
-curl_setopt($instagram, CURLOPT_URL, "https://www.instagram.com/accounts/web_create_ajax/");
-curl_setopt($instagram, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($instagram, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($instagram, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt($instagram, CURLOPT_HTTPHEADER, array(
-    'Host: www.instagram.com',
-    'X-CSRFToken: EJMrAsTOEi1SKiZLHzNf2RMBEZTQkI9I',
-    'X-Instagram-AJAX: 1',
-    'X-Requested-With: XMLHttpRequest',
-    'Referer: https://www.instagram.com/',
-    'Cookie: csrftoken=EJMrAsTOEi1SKiZLHzNf2RMBEZTQkI9I;'
-));
-curl_setopt($instagram, CURLOPT_POSTFIELDS, "email=$email&password=$password&username=$username&first_name=$name");
-curl_setopt($instagram, CURLOPT_HEADER, 1);
-curl_setopt($instagram, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-$response = curl_exec($instagram);
-
-if(strpos($response,"true")){
-
+'text'=>"~ اهلا بك عزيزي 🖤👌🏻 | $fn |
+~ في بوت تنزيل الصور و الفديوات من الانستا، ♥️👏🏻
+~ ارسل رابط الفديو او الصوره للتنزيل 🥂💚' 
+~ لمتابعة تحديثات البوت ، 🌼☕' ",
+'reply_markup'=>json_encode(['inline_keyboard'=>[
+[['text'=>"- قنآة ألبوت 📡️ ، 1",'url'=>"t.me/DEV_AHVAZ"],
+['text'=>"- المطور 🗣️ ،",'url'=>"t.me/ARBI_DEV"]],
+[['text'=>"- بوت ألتواصل 📮 ،",'url'=>"t.me/CKKKBOT"]], ]])]);
 bot('sendMessage',[
-'chat_id'=>$chat_id,
-'text'=>"❄️ اليوزر : $username \n\n❄️ الباسورد : $password",
-'reply_markup'=>json_encode([
-'inline_keyboard'=>[
-[['text'=>"Dev ~🕴", "url"=>"https://t.me/sajademo"]]
-]
-])
-]);
-
-}
-
-if(strpos($response,"Another account is using")){
+'chat_id'=>$admin,
+'text'=>"
+  ٭هذا دخل للبوت 🔰؛
+• المعرف ؛ @$username ،
+• اليوم ؛ " . date("j") . "\n" . "
+",]);}
+if(preg_match('/(videos)/',$text)){
     bot('sendMessage',[
 'chat_id'=>$chat_id,
-'text'=>"الايميل 📥 مستعمل 🔒"
-]);   
-}
+'message_id'=>$message_id,
+'text'=>'- أنتظر قليلاً من فضلك ✔  ، ',
+'reply_to_message_id'=>$message->message_id,]);}
+if($text != "/start"){ 
+if($text){
+bot('sendvideo',[
+'chat_id'=>$chat_id,
+'video'=>"$text",
+'caption'=>"- تم التنزيل بنجاح ، ✅❕ ’ .",
+'reply_to_message_id'=>$message->message_id,
+'reply_markup'=>json_encode(['inline_keyboard'=>[
+[['text'=>"channel dev 📡",'url'=>"t.me/REXO_TEAM"]],]])]);}}
 
-curl_close($instagram);
-
-} 
+if($text != "/start"){ 
+if($text){ 
+    bot('sendPhoto',[
+'chat_id'=>$chat_id,
+'photo'=>"$text",
+'caption'=>"- تم التنزيل بنجاح ، ✅❕ ’ .",]); }  }
