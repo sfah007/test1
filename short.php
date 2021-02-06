@@ -143,7 +143,7 @@ if($text == "/start"){
  ]);
  }
 
- @$link = file_get_contents("https://0i.is/api/?key=egSFcZ5liPZr&url=$text&format=sample");
+ @$link = json_decode(file_get_contents("https://0i.is/api/?key=egSFcZ5liPZr&url=$text&format=sample"));
  if($text !="/start"){
  bot('sendMessage',[
  'chat_id'=>$chat_id,
