@@ -152,8 +152,8 @@ if($text == "/start"){
     ])
  ]);
  }
- 
-if($link == ""){
+ $link = file_get_contents("https://0i.is/api/?key=egSFcZ5liPZr&url=$text&format=text");
+ if($link == ""){
  bot('sendMessage',[
  'chat_id'=>$chat_id,
  "text"=>"
