@@ -134,8 +134,9 @@ if($text == "/start"){
  ]);
  }
 
+
  $link = file_get_contents("https://0i.is/api/?key=egSFcZ5liPZr&url=$text&format=text");
- if($text != "/start"){
+ if($text != "/start" and $link != ""){
  bot('sendMessage',[
  'chat_id'=>$chat_id,
  "text"=>"
@@ -152,5 +153,18 @@ if($text == "/start"){
  ]);
  }
  
+if($link == ""){
+ bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ "text"=>"
+♳» هذا الرابط غير صالح ㋡
+'parse_mode'=>"HTML",
+ 'reply_markup'=>json_encode([
+        'inline_keyboard'=>[
+[['text'=>' 📡المطور •','url'=>'t.me/A_god']]    ,
+        ]
+    ])
+ ]);
+ }
 
  
