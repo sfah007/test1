@@ -143,7 +143,8 @@ if($text == "/start"){
 ♳» هذا الرابط الخاص بك ㋡
 ♴» اضغط ع الرابط وسوف ينسخ ♡
 ♵»الرابط 
-` $link `   ᗧ",
+` $link `   ᗧ
+QR code $link/qr",
 'parse_mode'=>"HTML",
  'reply_markup'=>json_encode([
         'inline_keyboard'=>[
