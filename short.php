@@ -144,6 +144,14 @@ if($text == "/start"){
  }
 
  @$link = file_get_contents("https://0i.is/api/?key=egSFcZ5liPZr&url=$text");
+$step = file_get_contents('step.txt');
+  if(preg_match('/^([Hh]ttp|[Hh]ttps)(.*)/',$text)){
+    $short = file_get_contents('http://yeo.ir/api.php?url='.$text);
+    roonx('sendMessage',[
+      'chat_id'=>$chat_id,
+      'text'=>"رابط الخااص بك 🤓:\n".$short."\n ",
+      'parse_mode'=>'HTML'
+    ]);
  if($text !="/start"){
  bot('sendMessage',[
  'chat_id'=>$chat_id,
