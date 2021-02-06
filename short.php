@@ -1,7 +1,7 @@
 <?php  
 
 ob_start(); 
-$API_KEY = "1092156256:AAG5VSCrui6MjxNN6_WSIr3YqZqpDcwqzFk";#توكن البوت 
+$API_KEY = "1604139711:AAHHoH9Ftgvl_CwnssRZ1G85Q6JkVcbBxa4";#توكن البوت 
 define('API_KEY',$API_KEY); 
 echo "<a href='https://api.telegram.org/bot$API_KEY/setwebhook?url=".$_SERVER['SERVER_NAME']."".$_SERVER['SCRIPT_NAME']."'>setwebhook</a>"; 
 echo file_get_contents("https://api.telegram.org/bot$API_KEY/setwebhook?url=".$_SERVER['SERVER_NAME']."".$_SERVER['SCRIPT_NAME']); 
@@ -135,7 +135,7 @@ if($text == "/start"){
  }
 
  $link = file_get_contents("https://0i.is/api/?key=egSFcZ5liPZr&url=$text&format=text");
- if($text !="/start"){
+ if(!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$text)){
  bot('sendMessage',[
  'chat_id'=>$chat_id,
  "text"=>"
