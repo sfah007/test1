@@ -1,5 +1,5 @@
 <?php
-define('1124323028:AAFp6uHmMMVn9aovrL4Kq1n-ThGAav7cVuk','توكن');
+define('1092156256:AAG5VSCrui6MjxNN6_WSIr3YqZqpDcwqzFk','توكن');
 $admin = 201839212;
 function roonx($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
