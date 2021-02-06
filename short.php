@@ -116,7 +116,7 @@ if($text and $modxe == "yas" and $chat_id == $admin ){
 } 
 }
 
-if(!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$text)){
+if(!preg_match("/\b(?:(?:https?|ftp):\/\/)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$text)){
  bot('sendMessage',[
  'chat_id'=>$chat_id,
  "text"=>
