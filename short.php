@@ -153,4 +153,23 @@ if($text == "/start"){
  ]);
  }
 
+ if($text != "/start" and $link == ""){
+ bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ "text"=>"
+♳» هذا الرابط الخاص بك ㋡
+",
+'parse_mode'=>"HTML",
+ 'reply_markup'=>json_encode([
+        'inline_keyboard'=>[
+[['text'=>' 📡المطور •','url'=>'t.me/A_god']]    ,
+        ]
+    ])
+ ]);
+ }
+
+
+
+
+
  
