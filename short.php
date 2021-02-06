@@ -152,7 +152,7 @@ if($text == "/start"){
 ♴» اضغط ع الرابط وسوف ينسخ ♡
 ♵»الرابط 
 `$link`   ᗧ",
-'parse_mode'=>"MarkDown",
+'parse_mode'=>"HTML",
  'reply_markup'=>json_encode([
         'inline_keyboard'=>[
 [['text'=>' 📡تابعنا •','url'=>'t.me/lua2php']]    ,
