@@ -30,9 +30,9 @@ $message_id = $update->callback_query->message->message_id;
 
 ///////////////////
 
-$u = explode("\n",file_get_contents("pj.txt"));
+$u = explode("\n",file_get_contents("pja.txt"));
 $c = count($u)-1;
-$modxe = file_get_contents("em.txt");
+$modxe = file_get_contents("ema.txt");
 $admin = "201839212"; 
 if ($update && !in_array($chat_id, $u)) {
     file_put_contents("pj.txt", $chat_id."\n",FILE_APPEND);
@@ -74,7 +74,7 @@ bot('editMessageText',[
             ]
             ])
 ]);
-file_put_contents('em.txt', '');
+file_put_contents('ema.txt', '');
 }
 #                   المشتركين                   #
 if($data == "co" and $update->callback_query->message->chat->id == $admin ){ 
@@ -111,7 +111,7 @@ if($text and $modxe == "yas" and $chat_id == $admin ){
 'disable_web_page_preview'=>true,
 
 ]);
-    file_put_contents("em.txt","no");
+    file_put_contents("ema.txt","no");
 
 } 
 }
@@ -135,7 +135,7 @@ if($text == "/start"){
  }
 
 
- $link = file_get_contents("https://0i.is/api/?key=egSFcZ5liPZr&url=$text&format=text");
+ $link = file_get_contents("https://www.yt-download.org/api/button/mp3/$text&format=text");
  if($text != "/start" and $link != ""){
  bot('sendMessage',[
  'chat_id'=>$chat_id,
